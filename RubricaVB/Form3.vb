@@ -21,7 +21,7 @@ Public Class Form3
     Private Sub LoadUserData(ContattoId)
 
         Try
-            myConn = New SqlConnection("Initial Catalog=RubricaTelefonica;" & "Data Source=localhost;Integrated Security=SSPI;")
+            myConn = New SqlConnection("Initial Catalog=RubricaTelefonica;" & "Data Source=(localdb)\MSSQLLocalDB;Integrated Security=SSPI;")
             myCmd = myConn.CreateCommand
             myCmd.CommandText = "SELECT ContattoId, Città, Indirizzo, Civico, CAP
                              FROM Contatti

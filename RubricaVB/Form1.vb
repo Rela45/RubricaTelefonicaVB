@@ -128,7 +128,7 @@ Public Class Form1
         If settings.SelectedMode.HasValue AndAlso settings.SelectedMode.Value = ModeSetting.SQL Then
             Try
                 myConn = New SqlConnection("Initial Catalog=RubricaTelefonica;" &
-                "Data Source=localhost;Integrated Security=SSPI;")
+                "Data Source=(localdb)\MSSQLLocalDB;Integrated Security=SSPI;")
 
                 myCmd = myConn.CreateCommand
                 myCmd.CommandText = "SELECT * FROM Contatti;"

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <SettingsData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Fullscreen>true</Fullscreen>
+  <Fullscreen>false</Fullscreen>
   <SelectedMode>SQL</SelectedMode>
 </SettingsData>
