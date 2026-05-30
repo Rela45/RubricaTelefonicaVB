@@ -151,9 +151,8 @@ Public Class Form1
                     item.SubItems.Add(myReader("Cellulare").ToString())
                     item.SubItems.Add(myReader("id").ToString())
                     lvwRubricaTelefonica.Items.Add(item)
-                    id = CInt(myReader("id").ToString())
+                    id += 1
                 Loop
-
             Catch ex As Exception
                 MessageBox.Show("Errore durante il caricamento dei dati", "Errore SQL", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -212,8 +211,7 @@ Public Class Form1
                 Try
                     myConn = New SqlConnection("Initial Catalog=RubricaTelefonica;Data Source=(localdb)\MSSQLLocalDB;Integrated Security=SSPI;")
                     myCmd = myConn.CreateCommand()
-                    myCmd.CommandText = "INSERT INTO Contatti (id, Nome, Cognome, Mail, Cellulare) VALUES (@id, @Name, @Surname, @Mail, @Cellular)"
-                    myCmd.Parameters.AddWithValue("@id", id)
+                    myCmd.CommandText = "INSERT INTO Contatti (Nome, Cognome, Mail, Cellulare) VALUES (@Name, @Surname, @Mail, @Cellular)"
                     myCmd.Parameters.AddWithValue("@Name", name)
                     myCmd.Parameters.AddWithValue("@Surname", surname)
                     myCmd.Parameters.AddWithValue("@Mail", mail)

@@ -123,7 +123,7 @@ Partial Class Form1
         Me.tbxName.Location = New System.Drawing.Point(20, 51)
         Me.tbxName.Name = "tbxName"
         Me.tbxName.Size = New System.Drawing.Size(414, 20)
-        Me.tbxName.TabIndex = 3
+        Me.tbxName.TabIndex = 1
         '
         'tbxMail
         '
@@ -133,7 +133,7 @@ Partial Class Form1
         Me.tbxMail.Location = New System.Drawing.Point(20, 107)
         Me.tbxMail.Name = "tbxMail"
         Me.tbxMail.Size = New System.Drawing.Size(414, 20)
-        Me.tbxMail.TabIndex = 1
+        Me.tbxMail.TabIndex = 3
         '
         'tbxSurname
         '
