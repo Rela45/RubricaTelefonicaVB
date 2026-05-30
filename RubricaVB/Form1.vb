@@ -1,25 +1,27 @@
-﻿Imports System.IO
-Imports Microsoft.VisualBasic.Logging
+﻿Imports System.Data.SqlClient
+Imports System.Diagnostics.Eventing
+Imports System.IO
+Imports System.Runtime.InteropServices
+Imports System.Runtime.Remoting.Lifetime
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.Xml.Serialization
 Imports System.Xml.Xsl
 Imports ClosedXML.Excel
-Imports System.Diagnostics.Eventing
-Imports System.Data.SqlClient
-Imports DocumentFormat.OpenXml.Wordprocessing
-Imports System.Runtime.Remoting.Lifetime
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-Imports System.Runtime.InteropServices
+Imports DocumentFormat.OpenXml.Bibliography
 Imports DocumentFormat.OpenXml.Drawing.Diagrams
+Imports DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing
+Imports DocumentFormat.OpenXml.Spreadsheet
+Imports DocumentFormat.OpenXml.Wordprocessing
+Imports Microsoft.VisualBasic.Logging
 
 
 
 Public Class Form1
-
     Dim name As String = " "
     Dim surname As String = " "
     Dim mail As String = " "
     Dim cellularNumber As String = " "
-    Dim id As Integer = 0
+    Dim id As Integer
     Dim selectedRowToModify As ListViewItem = Nothing
     Dim exePath As String = Application.StartupPath 'restituisce in string il path della cartella dell'eseguibile
     Dim open As New OpenFileDialog()
@@ -149,7 +151,9 @@ Public Class Form1
                     item.SubItems.Add(myReader("Cellulare").ToString())
                     item.SubItems.Add(myReader("id").ToString())
                     lvwRubricaTelefonica.Items.Add(item)
+                    id = CInt(myReader("id").ToString())
                 Loop
+
             Catch ex As Exception
                 MessageBox.Show("Errore durante il caricamento dei dati", "Errore SQL", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -167,6 +171,7 @@ Public Class Form1
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         lvwRubricaTelefonica.Enabled = False
         grpDetails.Enabled = True
+
     End Sub
 
     Private Sub ClearTextBox()
@@ -201,6 +206,25 @@ Public Class Form1
                 id += 1
 
                 lvwRubricaTelefonica.Items.Add(singleRow)
+
+
+
+                Try
+                    myConn = New SqlConnection("Initial Catalog=RubricaTelefonica;Data Source=(localdb)\MSSQLLocalDB;Integrated Security=SSPI;")
+                    myCmd = myConn.CreateCommand()
+                    myCmd.CommandText = "INSERT INTO Contatti (id, Nome, Cognome, Mail, Cellulare) VALUES (@id, @Name, @Surname, @Mail, @Cellular)"
+                    myCmd.Parameters.AddWithValue("@id", id)
+                    myCmd.Parameters.AddWithValue("@Name", name)
+                    myCmd.Parameters.AddWithValue("@Surname", surname)
+                    myCmd.Parameters.AddWithValue("@Mail", mail)
+                    myCmd.Parameters.AddWithValue("@Cellular", cellularNumber)
+                    myConn.Open()
+                    myCmd.ExecuteNonQuery()
+                Catch ex As Exception
+                    MessageBox.Show("Errore durante il salvataggio dei dati: " & ex.Message, "Errore SQL", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Finally
+                    myConn?.Close()
+                End Try
                 ClearTextBox()
 
             Else

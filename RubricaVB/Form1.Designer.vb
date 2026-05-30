@@ -120,7 +120,7 @@ Partial Class Form1
         Me.tbxName.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbxName.Location = New System.Drawing.Point(20, 107)
+        Me.tbxName.Location = New System.Drawing.Point(20, 51)
         Me.tbxName.Name = "tbxName"
         Me.tbxName.Size = New System.Drawing.Size(414, 20)
         Me.tbxName.TabIndex = 3
@@ -130,7 +130,7 @@ Partial Class Form1
         Me.tbxMail.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.tbxMail.Location = New System.Drawing.Point(20, 51)
+        Me.tbxMail.Location = New System.Drawing.Point(20, 107)
         Me.tbxMail.Name = "tbxMail"
         Me.tbxMail.Size = New System.Drawing.Size(414, 20)
         Me.tbxMail.TabIndex = 1
