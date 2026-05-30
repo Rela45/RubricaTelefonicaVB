@@ -22,8 +22,6 @@ Partial Class Form3
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.btnImport = New System.Windows.Forms.Button()
-        Me.btnExport = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnModify = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
@@ -44,28 +42,9 @@ Partial Class Form3
         Me.columnIndirizzo = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.columnCivico = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.columnCAP = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.grpDetails.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnImport
-        '
-        Me.btnImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnImport.Location = New System.Drawing.Point(802, 175)
-        Me.btnImport.Name = "btnImport"
-        Me.btnImport.Size = New System.Drawing.Size(75, 23)
-        Me.btnImport.TabIndex = 20
-        Me.btnImport.Text = "Importa"
-        Me.btnImport.UseVisualStyleBackColor = True
-        '
-        'btnExport
-        '
-        Me.btnExport.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExport.Location = New System.Drawing.Point(801, 217)
-        Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(75, 23)
-        Me.btnExport.TabIndex = 19
-        Me.btnExport.Text = "Esporta"
-        Me.btnExport.UseVisualStyleBackColor = True
         '
         'btnDelete
         '
@@ -262,13 +241,21 @@ Partial Class Form3
         Me.columnCAP.Text = "Cap"
         Me.columnCAP.Width = 120
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(785, 177)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 19
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(930, 570)
-        Me.Controls.Add(Me.btnImport)
-        Me.Controls.Add(Me.btnExport)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnModify)
         Me.Controls.Add(Me.btnAdd)
@@ -281,9 +268,6 @@ Partial Class Form3
         Me.ResumeLayout(False)
 
     End Sub
-
-    Private WithEvents btnImport As Button
-    Private WithEvents btnExport As Button
     Private WithEvents btnDelete As Button
     Private WithEvents btnModify As Button
     Private WithEvents btnAdd As Button
@@ -304,4 +288,5 @@ Partial Class Form3
     Private WithEvents columnIndirizzo As ColumnHeader
     Private WithEvents columnCivico As ColumnHeader
     Private WithEvents columnCAP As ColumnHeader
+    Friend WithEvents Button1 As Button
 End Class

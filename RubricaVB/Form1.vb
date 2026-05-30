@@ -126,6 +126,8 @@ Public Class Form1
 #End Region
 #Region "SQL"
         If settings.SelectedMode.HasValue AndAlso settings.SelectedMode.Value = ModeSetting.SQL Then
+            btnImport.Enabled = False
+            btnExport.Enabled = False
             Try
                 myConn = New SqlConnection("Initial Catalog=RubricaTelefonica;" &
                 "Data Source=(localdb)\MSSQLLocalDB;Integrated Security=SSPI;")
